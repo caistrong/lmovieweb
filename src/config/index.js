@@ -33,8 +33,8 @@ function loadFolderConfig(folder) {
 
     const fileData = fs.readFileSync(path.join(__dirname, folder, fileName), 'utf8');
     logger.info(`fileData: ${JSON.stringify(fileData)}`);
-
-    config[fileName] = JSON.parse(fileData);
+    const file = fileName.substring(0, fileName.indexOf('.')); // delete filename suffix
+    config[file] = JSON.parse(fileData);
     logger.info(`config: ${JSON.stringify(config)}`);
   });
 }

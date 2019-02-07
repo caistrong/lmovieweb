@@ -1,7 +1,7 @@
 {
-  "name": "recweb",
+  "name": "lmovieweb",
   "version": "1.0.0",
-  "description": "recommend system web server by caixiaocong",
+  "description": "movie recommend system web server by caixiaocong",
   "main": "src/web.js",
   "scripts": {
     "start": "cross-env NODE_ENV=dev && node src/web.js",
@@ -16,6 +16,8 @@
     "test": "test"
   },
   "dependencies": {
+    "ger": "0.0.99",
+    "ger_mysql_esm": "0.0.2",
     "joi": "^14.3.1",
     "joi-date-extensions": "^1.2.0",
     "koa": "^2.7.0",

@@ -9,4 +9,4 @@ class MovieController extends BaseController {
   }
 }
 
-module.exports = new MovieController();
+module.exports = MovieController;

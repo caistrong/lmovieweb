@@ -14,4 +14,4 @@ class MovieService extends BaseService {
   }
 }
 
-module.exports = new MovieService();
+module.exports = MovieService;

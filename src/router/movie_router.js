@@ -28,6 +28,6 @@ const r = new Router({ prefix: '/api/' });
  *       "message": "参数错误"
  *     }
  */
-r.get('getMovieList', controller.getMovieList);
+r.get('movies', controller.getMovieList);
 
 module.exports = r;
