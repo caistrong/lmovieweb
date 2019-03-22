@@ -9,10 +9,10 @@ const auto = new SequelizeAuto(config.db.database, config.db.user, config.db.pas
   port: config.db.port,
   dialect: 'mysql',
   directory: './src/model/',
-  tables: [] // TODO, fill in the table names
+  tables: ['movie_info', 'user_info'], // TODO, fill in the table names
 });
 
-auto.run(err => {
+auto.run((err) => {
   if (err) throw err;
 
   console.log(auto.tables); // table list

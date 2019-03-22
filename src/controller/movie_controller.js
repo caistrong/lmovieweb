@@ -5,7 +5,20 @@ const logger = require('../util/log_util');
 class MovieController extends BaseController {
   static async getMovieList(ctx) {
     logger.info('MovieController|getMovieList...');
-    ctx.body = await service.getMovieList();
+    const { openId } = ctx.state.userInfo;
+    ctx.body = await service.getMovieList(openId);
+  }
+
+  static async getSimilarMovieList(ctx) {
+    logger.info('MovieController|getSimilarMovieList...');
+    const { movieId } = ctx.query;
+    ctx.body = await service.getSimilarMovieList(movieId);
+  }
+
+  static async getMovieDetail(ctx) {
+    logger.info('MovieController|getMovieDetail...');
+    const { movieId } = ctx.query;
+    ctx.body = await service.getMovieDetail(movieId);
   }
 }
 

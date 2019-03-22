@@ -95,7 +95,8 @@ class GerService extends BaseService {
         },
       );
       logger.info(`GerService|getRecommendations|rsp: ${JSON.stringify(rsp)}`);
-      return ResultPair.ok(rsp);
+      // return ResultPair.ok(rsp);
+      return rsp;
     } catch (error) {
       logger.error(`GerService|getRecommendations|error: ${JSON.stringify(error)}`);
       throw error;
@@ -115,7 +116,8 @@ class GerService extends BaseService {
         },
       );
       logger.info(`GerService|getSimilarityThings|rsp: ${JSON.stringify(rsp)}`);
-      return ResultPair.ok(rsp);
+      // return ResultPair.ok(rsp);
+      return rsp;
     } catch (error) {
       logger.error(`GerService|getSimilarityThings|error: ${JSON.stringify(error)}`);
       throw error;
