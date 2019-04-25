@@ -9,6 +9,12 @@ class MovieController extends BaseController {
     ctx.body = await service.getMovieList(openId);
   }
 
+  static async getLikedMovieList(ctx) {
+    logger.info('MovieController|getLikedMovieList...');
+    const { openId } = ctx.state.userInfo;
+    ctx.body = await service.getLikedMovieList(openId);
+  }
+
   static async getSimilarMovieList(ctx) {
     logger.info('MovieController|getSimilarMovieList...');
     const { movieId } = ctx.query;

@@ -9,15 +9,16 @@ module.exports = async (ctx, next) => {
     const freeCheck = whiteList.some(item => new RegExp(item, 'i').test(ctx.path));
     if (freeCheck) {
       await next();
+    } else {
+      const token = ctx.request.headers.authorization;
+      if (!token) {
+        throw new Error('未传递token');
+      }
+      const userInfo = jwt.verify(token, config.common.jwtSecretKey);
+      logger.info(`userInfo: ${userInfo}`);
+      ctx.state.userInfo = userInfo;
+      await next();
     }
-    const token = ctx.request.headers.authorization;
-    if (!token) {
-      throw new Error('未传递token');
-    }
-    const userInfo = jwt.verify(token, config.common.jwtSecretKey);
-    logger.info(`userInfo: ${userInfo}`);
-    ctx.state.userInfo = userInfo;
-    await next();
   } catch (error) {
     logger.error(error);
     ctx.body = ResultPair.invalid('登录态校验失败');

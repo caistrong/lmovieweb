@@ -2,8 +2,8 @@
   "appName": "recWeb",
   "jwtSecretKey": "xxx",
   "mp": {
-    "appid": "xxx",
-    "secret": "xxx",
+    "appid": "wx16b646bf643e1986",
+    "secret": "c3238e31e9acde85084b3b6e6c1a8a6f",
     "code2SessionUrl": "https://api.weixin.qq.com/sns/jscode2session"
   },
   "whiteList": ["/login"]

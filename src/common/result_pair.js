@@ -22,4 +22,8 @@ module.exports = {
     code: 140001,
     message: '失败',
   },
+  ALREADY_LIKE: {
+    code: 150001,
+    message: '不可重复喜欢',
+  },
 };

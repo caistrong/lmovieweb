@@ -73,7 +73,8 @@ class GerService extends BaseService {
   static async delEvent(namespace, person, action, thing) {
     try {
       logger.info('GerService|delEvents|start...');
-      const rsp = await ger.delete_events(namespace, person, action, thing);
+      // const rsp = await ger.delete_events(namespace, person, action, thing);
+      const rsp = await ger.delete_events(namespace, { person, action, thing });
       logger.info(`GerService|delEvents|rsp: ${JSON.stringify(rsp)}`);
       return ResultPair.ok(rsp);
     } catch (error) {
@@ -92,6 +93,7 @@ class GerService extends BaseService {
           actions: {
             [action]: 1,
           },
+          filter_previous_actions: ['like'],
         },
       );
       logger.info(`GerService|getRecommendations|rsp: ${JSON.stringify(rsp)}`);

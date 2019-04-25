@@ -13,12 +13,11 @@ class LoginService extends BaseService {
     try {
       logger.info('LoginService|login|start...');
       const fullurl = `${code2SessionUrl}?appid=${appid}&secret=${secret}&js_code=${code}&grant_type=authorization_code`;
-      const rsp = axios.get(fullurl);
-      const { openid, session_key: sessionkey, unionid } = rsp.data;
+      const rsp = await axios.get(fullurl);
+      const { openid, session_key: sessionkey } = rsp.data;
       const defaultsInfo = {
         openId: openid,
         sessionKey: sessionkey,
-        unionId: unionid,
       };
       const [user, created] = await userInfo.findOrCreate({
         defaults: defaultsInfo,

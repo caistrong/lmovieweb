@@ -30,6 +30,8 @@ const r = new Router({ prefix: '/api/' });
  */
 r.get('movies', controller.getMovieList);
 
+r.get('liked_movies', controller.getLikedMovieList);
+
 r.get('similar_movies', controller.getSimilarMovieList);
 
 r.get('movie_detail', controller.getMovieDetail);
