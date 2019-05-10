@@ -3,7 +3,7 @@ const { createLogger, format, transports } = require('winston');
 const {
   combine,
   timestamp,
-  simple,
+  // simple,
   json,
 } = format;
 
@@ -30,11 +30,11 @@ const logger = createLogger({
 // If we're not in production then log to the `console` with the format:
 // `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
 //
-if (process.env.NODE_ENV !== 'production') {
-  logger.clear();
-  logger.add(new transports.Console({
-    format: simple(),
-  }));
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   logger.clear();
+//   logger.add(new transports.Console({
+//     format: simple(),
+//   }));
+// }
 
 module.exports = logger;
